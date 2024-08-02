@@ -29,6 +29,7 @@ const Table: React.FC = () => {
 
    const handleAction = useCallback(() => {
       if (isModalResult.get && currentAction.get) {
+
          const actionMap: ActionMap = {
             [userActions.add.key]: handleAddRow,
             [userActions.edit.key]: handleEditRow,
@@ -46,6 +47,7 @@ const Table: React.FC = () => {
    }, [handleAction]);
 
    const handleAddRow = () => {
+      if (currentAction.get === null) return;
       const newName = rows.get.find((item) => item.title === `newRow ${newRowIncrement}`);
       const newRow: Row = {
          title: `newRow ${newName ? ++newRowIncrement : newRowIncrement}`,
@@ -56,6 +58,7 @@ const Table: React.FC = () => {
    }
 
    const handleEditRow = () => {
+      if (currentAction.get === null) return;
       const updatedRows = [...rows.get];
       updatedRows[currentAction.get.index] = {
          ...rows.get[currentAction.get.index],
@@ -65,8 +68,9 @@ const Table: React.FC = () => {
    }
 
    const handleDeleteRow = () => {
-      rows.set(rows.get.filter((_, i) => i !== currentAction.get.index));
-   }
+   
+
+      rows.set(rows.get.filter((_, i) => currentAction.get && i !== currentAction.get.index));   }
 
    return (
       <table>
