@@ -1,0 +1,48 @@
+:root {}
+
+body,
+html,
+div,
+
+h2,
+h3,
+p,
+span,
+section,
+input,
+button,
+label,
+ul,
+li,
+a,
+img,
+table,
+tr,
+td,
+th,
+tbody,
+thead,
+tfoot,
+form,
+fieldset,
+legend,
+textarea,
+select {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: monospace, sans-serif;
+}
+
+button,
+input {
+   outline: none !important;
+}
+
+th,
+td {
+   border: 1px solid #ddd;
+   text-align: center;
+   padding: 5px !important;
+}
+

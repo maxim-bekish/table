@@ -1,0 +1,89 @@
+.modal {
+   position: absolute;
+   width: 100vw;
+   z-index: 999;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   min-width: 350px;
+   max-width: 550px;
+   min-height: 200px;
+   max-height: 400px;
+   background-color: #fff;
+   z-index: 1000;
+   border: 1px solid gray;
+   border-radius: 6px;
+   display: flex;
+   align-items: start;
+   gap: 20px;
+   justify-content: center;
+   flex-direction: column;
+   box-shadow: inset 1px 1px 15px 5px rgba(128, 128, 128, 0.7);
+   padding: 35px;
+}
+
+.modal__title {
+   font-size: 30px;
+   width: 80%;
+}
+
+.modal__input {
+   width: 100%;
+   height: 30px;
+   border: 0;
+   border-bottom: 1px solid gray;
+   padding: 0 5px;
+   transition: all 0.2s ease-in-out;
+   color: gray;
+}
+
+.modal__input:hover {
+   transition: all 0.2s ease-in-out;
+   color: black;
+   border-bottom: 1px solid #000;
+}
+
+.modal__input:hover::placeholder {
+   transition: all 0.2s ease-in-out;
+   color: black;
+
+}
+
+.modal__input:focus::placeholder {
+   transition: all 0.2s ease-in-out;
+   color: black;
+}
+
+.modal__input:focus {
+   transition: all 0.2s ease-in-out;
+   color: black;
+   border-bottom: 2px solid #000;
+}
+
+.modal__actions {
+   width: 100%;
+   display: flex;
+   justify-content: space-between
+}
+
+.modal__actions button {
+   width: 100px;
+   height: 20px;
+   border: 0;
+   border-radius: 2px;
+   background-color: #fff;
+   border: 1px solid gray;
+   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+}
+
+.modal__actions button:hover {
+   transition: all 0.2s ease-in-out;
+   background-color: #cfcfcc;
+}

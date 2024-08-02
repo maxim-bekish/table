@@ -1,0 +1,12 @@
+th:not(:first-child) {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1em;
+
+}
+
+th:first-child {
+  border: 0;
+}

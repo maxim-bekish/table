@@ -1,0 +1,131 @@
+:root {
+   --anim: all 150ms ease-in-out;
+}
+
+.table__row:nth-child(even) {
+   background-color: #f2f2f2;
+
+}
+
+.table__cell {
+   max-width: 300px;
+   min-width: 50px;
+   transition: var(--anim);
+}
+
+.table__row .table__cell-title {
+   position: relative;
+   font-weight: bold;
+   min-width: 200px;
+   height: 40px;
+}
+
+.table__cell-title:hover {
+   transition: var(--anim);
+   box-shadow: inset 0 0 3px 1px gray;
+}
+
+.table__cell:not(:first-child):hover {
+   opacity: .7;
+   box-shadow: inset 0 0 3px 0px black;
+   transition: var(--anim);
+}
+
+.table__cell--red {
+   background: linear-gradient(to bottom, #ff4d4d, #f44336);
+
+}
+
+.table__cell--green {
+   background: linear-gradient(to bottom, #a0d911, #8bc34a);
+}
+
+.table__tooltip-section {
+   display: flex;
+   flex-wrap: nowrap;
+   gap: 5px;
+   padding: 0 10px;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.table__tooltip-title {
+   text-align: left;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: normal;
+}
+
+.table__btn-more {
+   cursor: pointer;
+   padding: 6px 3px;
+   border: 1px solid rgb(88, 26, 26);
+   border-radius: 4px;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 25px;
+   height: 15px;
+   transition: var(--anim);
+}
+
+.table__btn-more:active {
+   transition: var(--anim);
+   background-color: #cfcfcc;
+}
+
+.table__tooltip-content {
+   display: none;
+   border: 1px solid rgb(88, 26, 26);
+   border-radius: 4px;
+   background-color: rgb(240, 248, 255);
+   padding: 5px;
+   top: -20px;
+   right: 0;
+   position: absolute;
+   flex-wrap: nowrap;
+   gap: 5px;
+}
+
+.table__tooltip-btn {
+   transition: var(--anim);
+   border: 1px solid gray;
+   padding: 2px 4px;
+   border-radius: 4px;
+}
+
+.table__tooltip-btn--add {
+   background-color: #d9f1d9;
+}
+
+.table__tooltip-btn--edit {
+   background-color: #f3ecd3;
+}
+
+.table__tooltip-btn--del {
+   background-color: #f1e1e1;
+}
+
+.table__tooltip-btn:active {
+   cursor: pointer;
+   opacity: .6;
+}
+
+
+
+@media (hover :hover) {
+   .table__tooltip-btn:hover {
+      transition: var(--anim);
+      cursor: pointer;
+      opacity: .6;
+   }
+
+   .table__btn-more:hover {
+      transition: var(--anim);
+      background-color: #cfcfcc;
+   }
+}
