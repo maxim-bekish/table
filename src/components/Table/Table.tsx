@@ -59,7 +59,7 @@ const Table: React.FC = () => {
          }
             break;
          case "del": {
-            rows.set(rows.get.filter((item, i) => currentAction.get !== null && i !== currentAction.get.id));
+            rows.set(rows.get.filter((_, i) => currentAction.get !== null && i !== currentAction.get.id));
          }
             break;
          default:

@@ -25,7 +25,6 @@ const TableBody: React.FC = () => {
    };
 
    const onSetting = (action: settingButtons) => {
-      console.log("qwe")
       currentAction.set(action);
       setOpenIndex(null);
       switch (action.flag) {
