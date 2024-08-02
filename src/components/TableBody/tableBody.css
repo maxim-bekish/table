@@ -1,10 +1,5 @@
-:root {
-   --anim: all 150ms ease-in-out;
-}
-
 .table__row:nth-child(even) {
-   background-color: #f2f2f2;
-
+   background-color: var(--color-light-gray);
 }
 
 .table__cell {
@@ -22,22 +17,22 @@
 
 .table__cell-title:hover {
    transition: var(--anim);
-   box-shadow: inset 0 0 3px 1px gray;
+   box-shadow: inset 0 0 3px 1px var(--color-gray);
 }
 
 .table__cell:not(:first-child):hover {
    opacity: .7;
-   box-shadow: inset 0 0 3px 0px black;
+   box-shadow: inset 0 0 3px 0px var(--color-dark);
    transition: var(--anim);
 }
 
 .table__cell--red {
-   background: linear-gradient(to bottom, #ff4d4d, #f44336);
+   background: linear-gradient(to bottom, var(--color-gradient-red));
 
 }
 
 .table__cell--green {
-   background: linear-gradient(to bottom, #a0d911, #8bc34a);
+   background: linear-gradient(to bottom, var(--color-gradient-green));
 }
 
 .table__tooltip-section {
@@ -62,9 +57,9 @@
 .table__btn-more {
    cursor: pointer;
    padding: 6px 3px;
-   border: 1px solid rgb(88, 26, 26);
+   border: 1px solid var(--color-dark-red);
    border-radius: 4px;
-   background-color: white;
+   background-color: var(--color-white);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -75,14 +70,14 @@
 
 .table__btn-more:active {
    transition: var(--anim);
-   background-color: #cfcfcc;
+   background-color: var(--color-gray-light);
 }
 
 .table__tooltip-content {
    display: none;
-   border: 1px solid rgb(88, 26, 26);
+   border: 1px solid var(--color-dark-red);
    border-radius: 4px;
-   background-color: rgb(240, 248, 255);
+   background-color: var(--color-alice-blue);
    padding: 5px;
    top: -20px;
    right: 0;
@@ -93,21 +88,21 @@
 
 .table__tooltip-btn {
    transition: var(--anim);
-   border: 1px solid gray;
+   border: 1px solid var(--color-gray);
    padding: 2px 4px;
    border-radius: 4px;
 }
 
 .table__tooltip-btn--add {
-   background-color: #d9f1d9;
+   background-color: var(--color-light-green);
 }
 
 .table__tooltip-btn--edit {
-   background-color: #f3ecd3;
+   background-color: var(--color-light-beige);
 }
 
 .table__tooltip-btn--del {
-   background-color: #f1e1e1;
+   background-color: var(--color-light-pink);
 }
 
 .table__tooltip-btn:active {
@@ -126,6 +121,6 @@
 
    .table__btn-more:hover {
       transition: var(--anim);
-      background-color: #cfcfcc;
+      background-color: var(--color-gray-light);
    }
 }

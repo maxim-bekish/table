@@ -11,9 +11,9 @@ const TableHead: React.FC = () => {
             {columns.get.length > 0 && (
                <>
                   <th></th>
-                  {columns.get.map((item, index) => (
-                     <th key={index}>
-                        Обработка  {item}
+                  {columns.get.map((item) => (
+                     <th key={item.id}>
+                        {item.title}
                      </th>
                   ))}
                </>

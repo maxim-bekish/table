@@ -1,11 +1,12 @@
 import './table.css';
-
-import React, { useEffect, useContext } from 'react';
-import { Row } from '../../type';
+import React, { useEffect, useContext, useCallback } from 'react';
+import { Row, ActionMap } from '../../type';
 import { createColumnsAsync, createRowsAsync } from '../../helpers/function';
+import { userActions } from '../../helpers/constants';
 import { MyContext } from '../../context/MyContext';
 import TableHead from '../../components/TableHead/TableHead';
 import TableBody from '../../components/TableBody/TableBody';
+import { v4 as uuidv4 } from 'uuid';
 
 let newRowIncrement = 1;
 const Table: React.FC = () => {
@@ -26,46 +27,47 @@ const Table: React.FC = () => {
       generateTable();
    }, []);
 
-   useEffect(() => {
+   const handleAction = useCallback(() => {
       if (isModalResult.get && currentAction.get) {
-         handleAction();
+         const actionMap: ActionMap = {
+            [userActions.add.key]: handleAddRow,
+            [userActions.edit.key]: handleEditRow,
+            [userActions.delete.key]: handleDeleteRow,
+         };
+         const action = actionMap[currentAction.get.flag];
+         if (action) action();
+
          isModalResult.set(false);
       }
    }, [isModalResult.get, currentAction.get]);
 
+   useEffect(() => {
+      handleAction();
+   }, [handleAction]);
 
+   const handleAddRow = () => {
+      const newName = rows.get.find((item) => item.title === `newRow ${newRowIncrement}`);
+      const newRow: Row = {
+         title: `newRow ${newName ? ++newRowIncrement : newRowIncrement}`,
+         row: Array.from({ length: columns.get.length }, () => ({ value: Math.random() < 0.5, id: uuidv4() })),
+         id: uuidv4(),
+      };
+      rows.set([...rows.get.slice(0, currentAction.get.index + 1), newRow, ...rows.get.slice(currentAction.get.index + 1)]);
+   }
 
+   const handleEditRow = () => {
+      const updatedRows = [...rows.get];
+      updatedRows[currentAction.get.index] = {
+         ...rows.get[currentAction.get.index],
+         title: newName.get,
+      };
+      rows.set(updatedRows);
+   }
 
-   const handleAction = () => {
-      if (currentAction.get === null) return;
-      switch (currentAction.get.flag) {
-         case "add": {
-            const x = rows.get.find((item) => item.title === `newRow ${newRowIncrement}`);
-            const newRow: Row = {
-               title: `newRow ${x ? ++newRowIncrement : newRowIncrement}`,
-               row: Array.from({ length: columns.get.length }, () => Math.random() < 0.5),
-            };
-            rows.set([...rows.get.slice(0, currentAction.get.id + 1), newRow, ...rows.get.slice(currentAction.get.id + 1)]);
-         }
-            break;
+   const handleDeleteRow = () => {
+      rows.set(rows.get.filter((_, i) => i !== currentAction.get.index));
+   }
 
-         case "edit": {
-            const updatedRows = [...rows.get];
-            updatedRows[currentAction.get.id] = {
-               ...rows.get[currentAction.get.id],
-               title: newName.get,
-            };
-            rows.set(updatedRows);
-         }
-            break;
-         case "del": {
-            rows.set(rows.get.filter((_, i) => currentAction.get !== null && i !== currentAction.get.id));
-         }
-            break;
-         default:
-            return;
-      }
-   };
    return (
       <table>
          <TableHead />
@@ -73,7 +75,5 @@ const Table: React.FC = () => {
       </table>
    );
 }
-
-
 
 export default Table;

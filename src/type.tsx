@@ -1,8 +1,12 @@
-export type Column = number;
+export interface Column {
+   title: string;
+   id: string;
+}
 
 export interface Row {
    title: string;
-   row: boolean[];
+   id: string;
+   row: { value: boolean, id: string }[];
 }
 
 export interface DataModal {
@@ -12,9 +16,25 @@ export interface DataModal {
 
 export interface settingButtons {
    flag: string;
-   id: number;
+   index: number;
    value: string;
 }
+
+export interface ActionMap {
+   [key: string]: () => void
+}
+
+export interface UserActions {
+   add: { displayName: string, key: string },
+   edit: { displayName: string, key: string },
+   delete: { displayName: string, key: string }
+}
+
+export interface ValidNumber {
+   min: number;
+   max: number
+}
+
 export interface ContextValue {
    isOpenModal: {
       get: boolean;

@@ -1,13 +1,13 @@
 .modal {
-   position: absolute;
+   position: fixed;
    width: 100vw;
    z-index: 999;
    height: 100vh;
-   background-color: rgba(0, 0, 0, 0.5);
+   background-color: var(--color-overlay-black-80);
 }
 
 .modal__content {
-   position: fixed;
+   position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
@@ -15,16 +15,16 @@
    max-width: 550px;
    min-height: 200px;
    max-height: 400px;
-   background-color: #fff;
+   background-color: var(--color-white);
    z-index: 1000;
-   border: 1px solid gray;
+   border: 1px solid var(--color-gray);
    border-radius: 6px;
    display: flex;
    align-items: start;
    gap: 20px;
    justify-content: center;
    flex-direction: column;
-   box-shadow: inset 1px 1px 15px 5px rgba(128, 128, 128, 0.7);
+   box-shadow: inset 1px 1px 15px 5px var(--color-overlay-gray-80);
    padding: 35px;
 }
 
@@ -37,33 +37,32 @@
    width: 100%;
    height: 30px;
    border: 0;
-   border-bottom: 1px solid gray;
+   border-bottom: 1px solid var(--color-gray);
    padding: 0 5px;
-   transition: all 0.2s ease-in-out;
-   color: gray;
+   transition: var(--anim);
+   color: var(--color-gray);
 }
 
 .modal__input:hover {
-   transition: all 0.2s ease-in-out;
-   color: black;
-   border-bottom: 1px solid #000;
+   transition: var(--anim);
+   color: var(--color-dark);
+   border-bottom: 1px solid var(--color-dark);
 }
 
 .modal__input:hover::placeholder {
-   transition: all 0.2s ease-in-out;
-   color: black;
-
+   transition: var(--anim);
+   color: var(--color-dark);
 }
 
 .modal__input:focus::placeholder {
-   transition: all 0.2s ease-in-out;
-   color: black;
+   transition: var(--anim);
+   color: var(--color-dark);
 }
 
 .modal__input:focus {
-   transition: all 0.2s ease-in-out;
-   color: black;
-   border-bottom: 2px solid #000;
+   transition: var(--anim);
+   color: var(--color-dark);
+   border-bottom: 2px solid var(--color-dark);
 }
 
 .modal__actions {
@@ -77,13 +76,13 @@
    height: 20px;
    border: 0;
    border-radius: 2px;
-   background-color: #fff;
-   border: 1px solid gray;
+   background-color: var(--color-white);
+   border: 1px solid var(--color-gray);
    cursor: pointer;
-   transition: all 0.2s ease-in-out;
+   transition: var(--anim);
 }
 
 .modal__actions button:hover {
-   transition: all 0.2s ease-in-out;
-   background-color: #cfcfcc;
+   transition: var(--anim);
+   background-color: var(--color-gray-light);
 }

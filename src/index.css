@@ -1,9 +1,28 @@
-:root {}
+:root {
+   --color-light: #dddddd;
+   --color-dark: #000000;
+   --color-accent-green: #4CAF50;
+   --color-white: #ffffff;
+   --color-light-gray: #f2f2f2;
+   --color-gray: #808080;
+   --color-dark-red: #581a1a;
+   --color-gray-light: #cfcfcc;
+   --color-alice-blue: #f0f8ff;
+   --color-light-green: #d9f1d9;
+   --color-light-beige: #f3ecd3;
+   --color-light-pink: #f1e1e1;
+   --color-gradient-red: #ff4d4d, #f44336;
+   --color-gradient-green: #a0d911, #8bc34a;
+   --color-overlay-black-80: #00000080;
+   --color-overlay-gray-80: #808080b3;
+
+   --anim: all 200ms ease-in-out;
+   --font: monospace, sans-serif;
+}
 
 body,
 html,
 div,
-
 h2,
 h3,
 p,
@@ -31,7 +50,7 @@ select {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: monospace, sans-serif;
+   font-family: var(--font);
 }
 
 button,
@@ -41,8 +60,7 @@ input {
 
 th,
 td {
-   border: 1px solid #ddd;
+   border: 1px solid var(--color-light);
    text-align: center;
    padding: 5px !important;
 }
-

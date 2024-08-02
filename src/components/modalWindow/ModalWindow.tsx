@@ -11,7 +11,7 @@ const ModalWindow: React.FC = () => {
    const context = useContext(MyContext);
    const { dataModal, isModalResult, isOpenModal, newName } = context;
 
-   const actionModal = (bool: boolean) => {
+   const actionModal = (bool: boolean) => () => {
       isOpenModal.set(false)
       isModalResult.set(bool)
    }
@@ -24,8 +24,8 @@ const ModalWindow: React.FC = () => {
                <h2 className='modal__title'>{dataModal.get.title}</h2>
                {dataModal.get.input && <input onChange={({ target }) => { newName.set(target.value) }} className='modal__input' type="text" placeholder='New name' />}
                <div className='modal__actions'>
-                  <button onClick={() => actionModal(true)} type='button'>True</button>
-                  <button onClick={() => actionModal(false)} type='button'>False</button>
+                  <button onClick={actionModal(true)} type='button'>True</button>
+                  <button onClick={actionModal(false)} type='button'>False</button>
                </div>
             </div>
          </section>,
