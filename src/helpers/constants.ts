@@ -12,7 +12,14 @@ export const validNumber: ValidNumber = {
 
 // кнопки на доп меню
 export const userActions: UserActions = {
-   add: { displayName: 'Add', key: 'add' }, 
+   add: { displayName: 'Add', key: 'add' },
    edit: { displayName: 'Edit', key: 'edit' },
    delete: { displayName: 'Delete', key: 'del' },
+};
+
+// настройка для модалки
+export const actionConfigs = {
+   [userActions.add.key]: { text: (value: string) => `Добавить новую строку под строкой "${value}"?`, input: false },
+   [userActions.edit.key]: { text: (value: string) => `Изменить имя строки "${value}"?`, input: true },
+   [userActions.delete.key]: { text: (value: string) => `Удалить строку "${value}"?`, input: false },
 };

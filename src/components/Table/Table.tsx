@@ -65,6 +65,7 @@ export const Table: React.FC = () => {
          title: newName.get,
       };
       rows.set(updatedRows);
+      newName.set('')
    }
 
    const handleDeleteRow = () => {

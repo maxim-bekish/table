@@ -1,7 +1,7 @@
 import './tableBody.css';
 import { settingButtons } from '../../type';
 import more from '../../assets/svg/more.svg'
-import { inactivityTimeout, userActions } from '../../helpers/constants';
+import { inactivityTimeout, userActions, actionConfigs } from '../../helpers/constants';
 import React, { useContext, useRef, useState } from 'react';
 import { MyContext } from '../../context/MyContext';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
@@ -27,22 +27,11 @@ export const TableBody: React.FC = () => {
    const onSetting = (action: settingButtons) => () => {
       currentAction.set(action);
       setOpenIndex(null);
-      switch (action.flag) {
-         case userActions.add.key:
-            dataModal.set({ title: `Добавить новую строку под строкой "${action.value}"?`, input: false });
-            break;
-         case userActions.edit.key:
-            dataModal.set({ title: `Изменить имя строки "${action.value}"?`, input: true });
-            break;
-         case userActions.delete.key:
-            dataModal.set({ title: `Удалить строку "${action.value}"?`, input: false });
-            break;
-         default:
-            return;
-      }
+      const { text, input } = actionConfigs[action.flag];
+      dataModal.set({ title: text(action.value), input });
       isOpenModal.set(true);
    };
-   
+
    return (
       <React.Fragment>
          <tbody>
