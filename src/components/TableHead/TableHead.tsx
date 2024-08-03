@@ -6,7 +6,7 @@ import { MyContext } from '../../context/MyContext';
 export const TableHead: React.FC = () => {
    const context = useContext(MyContext);
    const { columns } = context;
-   
+
    return (
       <thead>
          <tr>
@@ -15,7 +15,9 @@ export const TableHead: React.FC = () => {
                   <th></th>
                   {columns.get.map((item) => (
                      <th key={item.id}>
-                        {item.title}
+                        <p className='th-item'>
+                           {item.title}
+                        </p>
                      </th>
                   ))}
                </React.Fragment>

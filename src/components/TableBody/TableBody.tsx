@@ -30,6 +30,7 @@ export const TableBody: React.FC = () => {
       const { text, input } = actionConfigs[action.flag];
       dataModal.set({ title: text(action.value), input });
       isOpenModal.set(true);
+      document.body.classList.add('modal-open');
    };
 
    return (

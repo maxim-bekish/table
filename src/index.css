@@ -64,3 +64,8 @@ td {
    text-align: center;
    padding: 5px !important;
 }
+
+.modal-open {
+   overflow: hidden;
+   position: fixed;
+}
