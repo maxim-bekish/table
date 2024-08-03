@@ -3,7 +3,6 @@ import { MyContext, defaultValue, } from './MyContext';
 import { Column, ContextValue, DataModal, Row, settingButtons } from '../type';
 
 
-
 const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
    const [isOpenModal, setIsOpenModal] = useState<boolean>(defaultValue.isOpenModal.get);
    const [dataModal, setDataModal] = useState<DataModal | null>(defaultValue.dataModal.get);
@@ -42,10 +41,10 @@ const MyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
          get: rows,
          set: setRows,
       },
-
    };
 
    return (
+      
       <MyContext.Provider value={value}>
          {children}
       </MyContext.Provider>

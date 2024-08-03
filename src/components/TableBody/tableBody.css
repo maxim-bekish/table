@@ -28,7 +28,6 @@
 
 .table__cell--red {
    background: linear-gradient(to bottom, var(--color-gradient-red));
-
 }
 
 .table__cell--green {

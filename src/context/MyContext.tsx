@@ -2,7 +2,6 @@ import { createContext } from 'react';
 import { ContextValue } from '../type';
 
 
-
 export const defaultValue: ContextValue = {
   isOpenModal: {
     get: false,

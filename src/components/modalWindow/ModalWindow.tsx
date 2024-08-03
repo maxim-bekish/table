@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './modalWindow.css';
-
 import { useContext } from 'react';
 import { MyContext } from '../../context/MyContext';
 
 
-const ModalWindow: React.FC = () => {
-
+export const ModalWindow: React.FC = () => {
    const context = useContext(MyContext);
    const { dataModal, isModalResult, isOpenModal, newName } = context;
 
@@ -18,6 +16,7 @@ const ModalWindow: React.FC = () => {
 
    if (dataModal.get !== null) {
       const portalRoot = document.getElementById('portal-root');
+      
       return portalRoot ? ReactDOM.createPortal(
          <section className='modal'>
             <div className='modal__content'>
@@ -33,5 +32,3 @@ const ModalWindow: React.FC = () => {
       ) : null;
    }
 };
-
-export default ModalWindow;

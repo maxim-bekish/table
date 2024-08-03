@@ -4,15 +4,14 @@ import more from '../../assets/svg/more.svg'
 import { inactivityTimeout, userActions } from '../../helpers/constants';
 import React, { useContext, useRef, useState } from 'react';
 import { MyContext } from '../../context/MyContext';
-import ModalWindow from '../modalWindow/ModalWindow';
+import { ModalWindow } from '../ModalWindow/ModalWindow';
 
 
-const TableBody: React.FC = () => {
+export const TableBody: React.FC = () => {
    const inactivityTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
    const context = useContext(MyContext);
    const { isOpenModal, dataModal, currentAction, rows } = context;
    const [openIndex, setOpenIndex] = useState<string | null>(null);
-
 
    // Функция для коректного открытия/закрытия меню(more: add, edit, del)
    const toggleViewMore = (index: string) => () => {
@@ -43,6 +42,7 @@ const TableBody: React.FC = () => {
       }
       isOpenModal.set(true);
    };
+   
    return (
       <React.Fragment>
          <tbody>
@@ -71,10 +71,5 @@ const TableBody: React.FC = () => {
          </tbody>
          {isOpenModal.get && <ModalWindow />}
       </React.Fragment>
-
    );
 }
-
-
-
-export default TableBody;

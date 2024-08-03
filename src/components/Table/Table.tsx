@@ -4,12 +4,14 @@ import { Row, ActionMap } from '../../type';
 import { createColumnsAsync, createRowsAsync } from '../../helpers/function';
 import { userActions } from '../../helpers/constants';
 import { MyContext } from '../../context/MyContext';
-import TableHead from '../../components/TableHead/TableHead';
-import TableBody from '../../components/TableBody/TableBody';
+import { TableHead } from '../../components/TableHead/TableHead';
+import { TableBody } from '../../components/TableBody/TableBody';
 import { v4 as uuidv4 } from 'uuid';
 
+
 let newRowIncrement = 1;
-const Table: React.FC = () => {
+
+export const Table: React.FC = () => {
    const context = useContext(MyContext);
    const { isModalResult, currentAction, newName, columns, rows } = context;
 
@@ -29,7 +31,6 @@ const Table: React.FC = () => {
 
    const handleAction = useCallback(() => {
       if (isModalResult.get && currentAction.get) {
-
          const actionMap: ActionMap = {
             [userActions.add.key]: handleAddRow,
             [userActions.edit.key]: handleEditRow,
@@ -37,7 +38,6 @@ const Table: React.FC = () => {
          };
          const action = actionMap[currentAction.get.flag];
          if (action) action();
-
          isModalResult.set(false);
       }
    }, [isModalResult.get, currentAction.get]);
@@ -68,9 +68,8 @@ const Table: React.FC = () => {
    }
 
    const handleDeleteRow = () => {
-   
-
-      rows.set(rows.get.filter((_, i) => currentAction.get && i !== currentAction.get.index));   }
+      rows.set(rows.get.filter((_, i) => currentAction.get && i !== currentAction.get.index));
+   }
 
    return (
       <table>
@@ -79,5 +78,3 @@ const Table: React.FC = () => {
       </table>
    );
 }
-
-export default Table;
